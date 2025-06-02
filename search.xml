@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Hexo 博客搭建指南</title>
+      <link href="/2025/06/02/WebBlog/"/>
+      <url>/2025/06/02/WebBlog/</url>
+      
+        <content type="html"><![CDATA[<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="官网资料"><a href="#官网资料" class="headerlink" title="官网资料"></a>官网资料</h2><p>hexo官网配置参考<a href="https://hexo.io/zh-cn/docs/commands">hexo 指令</a></p><p>主题 anzhiyu 配置参考<a href="https://docs.anheyu.com/page/front-matter.html">安知鱼主题</a></p><h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><p>打开本地调试</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// cmd</span><br><span class="line">hexo clean</span><br><span class="line">hexo server</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">hexo cl &amp;&amp; hexo s</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">// vscode</span><br><span class="line">hexo cl; hexo s</span><br></pre></td></tr></table></figure><p>推送更改</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// cmd</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line">// vscode</span><br><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line">hexo cl; hexo g; hexo d</span><br></pre></td></tr></table></figure><p>设置标签页和分类页</p><h1 id="基础流程"><a href="#基础流程" class="headerlink" title="基础流程"></a>基础流程</h1><h2 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h2><ol><li><p>给出原始md文档，移入<code>./source/_posts</code>中</p></li><li><p>在md开头加入yaml配置信息，字段参考<a href="https://docs.anheyu.com/page/front-matter.html">front-matter</a></p><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的第一篇 Hexo 文章</span><br><span class="line">date: 2025-06-02 20:30:00 # 不填默认设置生成静态文件的时间</span><br><span class="line">location: 成都 # 不填默认成都</span><br><span class="line">tags: # 标签，可以有多个</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> 博客</span><br><span class="line"><span class="bullet">  -</span> Markdown</span><br><span class="line">categories: # 分类，可以有多个，通常是层级关系</span><br><span class="line"><span class="bullet">  -</span> 学习笔记</span><br><span class="line"><span class="bullet">  -</span> 博客搭建</span><br><span class="line">cover: /images/post<span class="emphasis">_cover.jpg # 可选，文章封面图片路径</span></span><br><span class="line"><span class="emphasis">description: 这是一篇关于如何发布Hexo文章的示例。 # 可选，文章摘要或描述</span></span><br><span class="line"><span class="emphasis">---</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 我的文章内容标题</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">这是我的文章正文内容，使用 Markdown 语法编写。</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">你可以包含图片、代码块、列表等等。</span></span><br></pre></td></tr></table></figure></li><li><p>生成静态文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line"><span class="comment"># 或者简写</span></span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></li><li><p>本地预览</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line"><span class="comment"># 或者简写</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></li><li><p>一键部署</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line"><span class="comment"># 或者简写</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li></ol><h2 id="更改或删除"><a href="#更改或删除" class="headerlink" title="更改或删除"></a>更改或删除</h2><p><strong>修改文章</strong>：直接打开 <code>source/_posts</code> 目录下的相应 Markdown 文件进行修改，保存后，再运行 <code>hexo generate</code> 和 <code>hexo deploy</code> 即可更新线上的文章。</p><p><strong>删除文章</strong>：如果你想彻底删除某篇文章，就从 <code>source/_posts</code> 目录中删除对应的 Markdown 文件。然后运行 <code>hexo clean</code> 清理旧的生成文件（可选，但推荐），接着运行 <code>hexo generate</code> 和 <code>hexo deploy</code>。这样，你的博客上这篇文章就会被移除。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 博客搭建 </tag>
+            
+            <tag> 前端开发 </tag>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Go + Gin</title>
       <link href="/2025/06/02/backend-go/"/>
       <url>/2025/06/02/backend-go/</url>
