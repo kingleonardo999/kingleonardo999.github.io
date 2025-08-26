@@ -55,11 +55,11 @@
             
             <tag> Go </tag>
             
+            <tag> 数据库 </tag>
+            
             <tag> Redis </tag>
             
             <tag> 缓存 </tag>
-            
-            <tag> 数据库 </tag>
             
         </tags>
       
@@ -119,9 +119,9 @@
             
             <tag> 项目 </tag>
             
-            <tag> 数据库 </tag>
-            
             <tag> GORM </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
